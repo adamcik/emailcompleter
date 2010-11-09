@@ -60,29 +60,29 @@
     });
   }
 
-	function update_selection(current, replacement, suggest) {
-		if (!replacement.length) {
-			return;
-		}
-		current.removeClass('ec-selected');
-		replacement.addClass('ec-selected');
-		suggest.hide();
-		suggest.val(replacement.text());
-		suggest.fadeIn();
-	}
+  function update_selection(current, replacement, suggest) {
+    if (!replacement.length) {
+      return;
+    }
+    current.removeClass('ec-selected');
+    replacement.addClass('ec-selected');
+    suggest.hide();
+    suggest.val(replacement.text());
+    suggest.fadeIn();
+  }
 
-	function commit_selection(input, suggest, list) {
+  function commit_selection(input, suggest, list) {
     if (list.is(':hidden')) {
       return false;
     }
-  
-  	var selected = list.find('.ec-selected');
+
+    var selected = list.find('.ec-selected');
     if (selected.length > 0) {
-  	  input.val(selected.text());
-  	}
+      input.val(selected.text());
+    }
     list.hide();
     suggest.val('');
-		return true;
+    return true;
   }
 
   function select_hovered_item(e) {
@@ -102,7 +102,7 @@
 
   function handle_blur(e) {
     e.data.list.hide();
-		e.data.suggest.val('');
+    e.data.suggest.val('');
   }
 
   function handle_input_keydown(e) {
@@ -114,16 +114,16 @@
 
     switch (e.keyCode) {
       case KEYS.UP:
-			  update_selection(selected, selected.prev(), e.data.suggest);
-      break;
-  
-      case KEYS.DOWN:
-			  update_selection(selected, selected.next(), e.data.suggest);
+        update_selection(selected, selected.prev(), e.data.suggest);
       break;
 
-			case KEYS.TAB:
+      case KEYS.DOWN:
+        update_selection(selected, selected.next(), e.data.suggest);
+      break;
+
+      case KEYS.TAB:
         commit_selection(e.data.input, e.data.suggest, e.data.list)
-		  return true;
+      return true;
 
       case KEYS.ENTER:
         if (!commit_selection(e.data.input, e.data.suggest, e.data.list)) {
@@ -131,47 +131,47 @@
         }
       break;
 
-		  case KEYS.DEL:
- 				e.data.suggest.val('');
-			return true;
+      case KEYS.DEL:
+        e.data.suggest.val('');
+      return true;
 
-		  case KEYS.BACK:
-				if (!carret_at_end(e.data.input)) {
-				  e.data.suggest.val('');
+      case KEYS.BACK:
+        if (!carret_at_end(e.data.input)) {
+          e.data.suggest.val('');
         }
-			return true;
-  
+      return true;
+
       default:
-			return true;
+      return true;
     }
     e.preventDefault();
-		return false;
-  }
-	
-	function handle_input_keypress(e) {
-	  var suggest = e.data.suggest.val();
-		var input = e.data.input.val();
-		var key = String.fromCharCode(e.charCode);
-		var next = suggest[input.length];
-
-		if (e.charCode == 0) {
-			return;
-		}
-
-		if (key != next || input != suggest.substr(0, input.length)) {
-			e.data.suggest.val('');
-		}
+    return false;
   }
 
-	function handle_input_keyup(e) {
+  function handle_input_keypress(e) {
+    var suggest = e.data.suggest.val();
+    var input = e.data.input.val();
+    var key = String.fromCharCode(e.charCode);
+    var next = suggest[input.length];
+
+    if (e.charCode == 0) {
+      return;
+    }
+
+    if (key != next || input != suggest.substr(0, input.length)) {
+      e.data.suggest.val('');
+    }
+  }
+
+  function handle_input_keyup(e) {
     if (e.keyCode > 46 || e.keyCode == KEYS.BACK || e.keyCode == KEYS.DEL) {
       update_complete(e.data.input, e.data.list, e.data.domains);
     }
   }
 
-	function handle_focus(e) {
+  function handle_focus(e) {
     update_complete(e.data.input, e.data.list, e.data.domains);
-	}
+  }
 
   function update_complete(input, list, domains) {
     var match = input.val().match('^([^@ ]+)@([^@ ]+)$');
@@ -186,35 +186,35 @@
 
     list.empty();
     for (var i in domains) {
-		  if (domain == domains[i].substr(0, domain.length)) {
+      if (domain == domains[i].substr(0, domain.length)) {
         list.append($('<li class="ec-item">' + localpart + '@' + domains[i] + '</li>'));
       }
     }
-		list.children(':first').addClass('ec-selected');
+    list.children(':first').addClass('ec-selected');
     list.children().length > 0 ? list.show() : list.hide();
 
     var text = list.find(':first-child').text();
-		var suggest = input.parent().find('.ec-suggest');
-		var cutof = list.data('cutof');
+    var suggest = input.parent().find('.ec-suggest');
+    var cutof = list.data('cutof');
 
-		if (text.length < cutof || cutof == 0) {
-		  suggest.val(text);
-  	} else {
-			suggest.val('');
+    if (text.length < cutof || cutof == 0) {
+      suggest.val(text);
+    } else {
+      suggest.val('');
     }
   }
 
   function carret_at_end(input) {
-    if (document.selection) { 
-		  var range = document.selection.createRange();
+    if (document.selection) {
+      var range = document.selection.createRange();
       range.moveStart ('character', -input.val().length);
-			return range.text.length == input.val().length;
+      return range.text.length == input.val().length;
     } else if (input.get(0).selectionStart) {
-			var text = input.val();
+      var text = input.val();
       input = input.get(0);
-			return input.selectionStart == input.selectionEnd &&
-				input.selectionEnd == text.length;
+      return input.selectionStart == input.selectionEnd &&
+        input.selectionEnd == text.length;
     }
-	  return false;
+    return false;
   }
 }(jQuery));

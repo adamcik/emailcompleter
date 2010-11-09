@@ -1,0 +1,26 @@
+jQuery Emailcompleter
+=====================
+
+This plugin provides a specialized auto-completer that completes the domain
+name part of common email domains.
+
+Dependencies
+============
+
+jQuery
+------
+  URL: https://github.com/jquery/jquery
+  License: MIT/GPL
+
+Build dependencies
+==================
+
+qunit
+-----
+  URL: https://github.com/jquery/qunit
+  License: MIT
+
+jquery.autotype
+---------------
+  URL: https://github.com/mmonteleone/jquery.autotype
+  License: MIT

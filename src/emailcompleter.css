@@ -1,0 +1,48 @@
+.ec {
+	position: relative;
+	display: inline-block;
+}
+
+.ec-input {
+  background: transparent;
+}
+
+.ec-list {
+	display: none;
+}
+
+.ec-list {
+  list-style-position: outside;
+  border: 1px solid #666;
+	background: #FFFFFF;
+  border-top: 0;
+  display: none;
+  font-size: 0.9em;
+  list-style: none;
+  overflow: hidden;
+  position: absolute;
+  z-index: 99999;
+  text-align: left;
+}
+
+.ec-suggest {
+	color: silver;
+	position: absolute;
+	z-index: -1000;
+	bottom: 0;
+	left: 0;
+	border-color: transparent;
+	background: white;
+}
+
+.ec-list, .ec-item {
+  margin: 0;
+  padding: 0;
+}
+.ec-item {
+  padding: 0.3em 0.6em;
+}
+.ec-item.ec-selected {
+  background: #3465A4;
+  color: #FFFFFF;
+}

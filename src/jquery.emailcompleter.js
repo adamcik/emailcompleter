@@ -151,10 +151,10 @@
   function handle_input_keypress(e) {
     var suggest = e.data.suggest.val();
     var input = e.data.input.val();
-    var key = String.fromCharCode(e.charCode);
+    var key = String.fromCharCode(e.charCode || e.keyCode);
     var next = suggest[input.length];
 
-    if (e.charCode == 0) {
+    if (e.charCode == 0 || e.keyCode == 0) {
       return;
     }
 

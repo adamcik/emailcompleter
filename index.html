@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+  "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+  <head>
+    <title>Emailcompleter sample</title>
+    <link rel="stylesheet" href="https://github.com/adamcik/emailcompleter/raw/master/src/emailcompleter.css" type="text/css"/>
+
+    <script src="https://github.com/adamcik/emailcompleter/raw/master/src/jquery-1.4.3.min.js" type="text/javascript"></script>
+    <script src="https://github.com/adamcik/emailcompleter/raw/master/src/jquery.emailcompleter.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#email').emailcomplete([
+          'gmail.com',
+          'hotmail.com',
+          'msn.com',
+          'yahoo.com',
+        ], 35);
+      });
+    </script>
+    <style type="text/css">
+      body {
+        font-family: Helvetica, sans-serif;
+        width: 30em;
+        margin: 5em auto 0;
+        text-align: center;
+      }
+      input, button {
+        font-size: 1.2em;
+        padding: 0.2em;
+        border: 1px solid #666;
+      }
+      input {
+        width: 20em;
+      }
+      button {
+        padding: 0.2em 0.5em;
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <p>Try entering a gmail.com, hotmail.com or msn.com email:</p>
+      <p><label>Email: <input id="email" /></label><button>Submit</button></p>
+    </form>
+  </body>
+</html>

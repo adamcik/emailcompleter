@@ -363,7 +363,11 @@
     // FIXME test-foo@ba -> testi@ba should be tested with keypress i
     // FIXME updating localpart should not trigger animation
 
-    // FIXME test suggest is not modified between events... 
+    // FIXME test suggest is not modified between events...
+
+    // FIXME test that arrows keys to sides don't "kill" suggestion
+
+    // FIXME right arrow should "type" next char
 
     // Backspace at end does nothing
     // Backspace internal clears suggest

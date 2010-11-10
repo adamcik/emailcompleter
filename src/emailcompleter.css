@@ -1,6 +1,6 @@
 .ec {
-	position: relative;
-	display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .ec-input {
@@ -8,13 +8,13 @@
 }
 
 .ec-list {
-	display: none;
+  display: none;
 }
 
 .ec-list {
   list-style-position: outside;
   border: 1px solid #666;
-	background: #FFFFFF;
+  background: #FFFFFF;
   border-top: 0;
   display: none;
   font-size: 0.9em;
@@ -26,13 +26,13 @@
 }
 
 .ec-suggest {
-	color: silver;
-	position: absolute;
-	z-index: -1000;
-	bottom: 0;
-	left: 0;
-	border-color: transparent;
-	background: white;
+  color: silver;
+  position: absolute;
+  z-index: -1000;
+  bottom: 0;
+  left: 0;
+  border-color: transparent;
+  background: white;
 }
 
 .ec-list, .ec-item {

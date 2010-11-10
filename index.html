@@ -9,38 +9,61 @@
     <script src="https://github.com/adamcik/emailcompleter/raw/master/src/jquery.emailcompleter.js" type="text/javascript"></script>
     <script type="text/javascript">
       $(document).ready(function() {
-        $('#email').emailcomplete([
+        var domains = [
+          'aol.com',
+          'bellsouth.net',
+          'btinternet.com',
+          'charter.net',
+          'comcast.net',
+          'cox.net',
+          'earthlink.net',
           'gmail.com',
+          'hotmail.co.uk',
           'hotmail.com',
           'msn.com',
-          'yahoo.com',
-        ], 35);
+          'ntlworld.com',
+          'rediffmail.com',
+          'sbcglobal.net',
+          'verizon.net',
+          'yahoo.co.uk',
+          'yahoo.com'
+        ];
+        $('#email').emailcomplete(domains, 35);
+        $('#domains').append(domains.join(', '));
       });
     </script>
     <style type="text/css">
       body {
         font-family: Helvetica, sans-serif;
-        width: 30em;
-        margin: 5em auto 0;
+        width: 40em;
+        margin: 2em auto 0;
         text-align: center;
       }
-      input, button {
+      input {
         font-size: 1.2em;
         padding: 0.2em;
         border: 1px solid #666;
-      }
-      input {
         width: 20em;
       }
-      button {
-        padding: 0.2em 0.5em;
+      #domains {
+        font-family: monospace;
       }
     </style>
   </head>
   <body>
     <form>
-      <p>Try entering a gmail.com, hotmail.com or msn.com email:</p>
-      <p><label>Email: <input id="email" /></label><button>Submit</button></p>
+      <p><input id="email" type="text" /></p>
+      <p>
+        Try entering an email into the field above.
+        The following domains should be suggested:
+      </p>
+      <p id="domains"></p>
+      <p>
+        For more info see
+        <a href="https://github.com/adamcik/emailcompleter">
+          https://github.com/adamcik/emailcompleter
+        </a>
+      </p>
     </form>
   </body>
 </html>

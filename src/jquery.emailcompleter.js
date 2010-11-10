@@ -154,7 +154,7 @@
     var key = String.fromCharCode(e.charCode || e.keyCode);
     var next = suggest[input.length];
 
-    if (e.charCode == 0 || e.keyCode == 0) {
+    if (e.charCode == 0 || e.keyCode == 0 || e.which == KEYS.BACK) {
       return;
     }
 

@@ -1,5 +1,8 @@
+/* https://github.com/adamcik/emailcompleter */
+
 /*jslint white: true, browser: true, undef: true, nomen: true, eqeqeq: true, plusplus: true, bitwise: true, regexp: true, newcap: true, immed: true, indent: 2 */
 /*global jQuery */
+
 (function ($) {
   var KEYS = {UP: 38, DOWN: 40, TAB: 9, ENTER: 13, ESC: 27, BACK: 8, DEL: 46};
 
